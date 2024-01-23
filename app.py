@@ -5,11 +5,10 @@ from threading import Thread
 from openxlab.model import download
 
 
-download(model_repo='OpenLMLab/internlm2-chat-7b',output='/home/xlab-app-center/internlm2-checkpoint')
+download(model_repo='OpenLMLab/internlm2-chat-7b',output='/home/xlab-app-center/internlm/internlm2-chat-7b')
 
-tokenizer = AutoTokenizer.from_pretrained("/home/xlab-app-center/internlm2-checkpoint",trust_remote_code=True)
-model = AutoModelForCausalLM.from_pretrained("/home/xlab-app-center/internlm2-checkpoint",trust_remote_code=True, torch_dtype=torch.float16)
-model = model.to('cuda:0')
+tokenizer = AutoTokenizer.from_pretrained("/home/xlab-app-center/internlm/internlm2-chat-7b",trust_remote_code=True)
+model = AutoModelForCausalLM.from_pretrained("/home/xlab-app-center/internlm/internlm2-chat-7b",trust_remote_code=True, torch_dtype=torch.float16).cuda()
 
 class StopOnTokens(StoppingCriteria):
     def __call__(self, input_ids: torch.LongTensor, scores: torch.FloatTensor, **kwargs) -> bool:
