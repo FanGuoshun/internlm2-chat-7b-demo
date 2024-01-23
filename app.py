@@ -7,7 +7,7 @@ from openxlab.model import download
 
 download(model_repo='OpenLMLab/internlm2-chat-7b',output='/home/xlab-app-center/internlm2-checkpoint')
 
-tokenizer = AutoTokenizer.from_pretrained("/home/xlab-app-center/internlm2-checkpoint", trust_remote_code=True)
+tokenizer = AutoTokenizer.from_pretrained("/home/xlab-app-center/internlm2-checkpoint")
 model = AutoModelForCausalLM.from_pretrained("/home/xlab-app-center/internlm2-checkpoint", torch_dtype=torch.float16)
 model = model.to('cuda:0')
 
