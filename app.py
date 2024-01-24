@@ -3,7 +3,7 @@ import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer, AutoModel
 from openxlab.model import download
 
-base_path = 'internlm2-chat-7b'
+base_path = '/internlm2-chat-7b'
 
 download(model_repo='OpenLMLab/internlm2-chat-7b',output=base_path)
 
